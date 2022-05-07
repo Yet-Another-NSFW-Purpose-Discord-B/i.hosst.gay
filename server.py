@@ -37,6 +37,8 @@ async def search(filename):
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/neko"):
         return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
 
+    if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/tomboy"):
+        return jsonify(url="https://thino.pics/api/v1/tomboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
 
 
 
