@@ -19,6 +19,23 @@ async def home():
     
     """
 
+@app.route("/search/<filename>")
+async def search(filename):
+    dir = "/root/yanpdb/nsfw_cdn/"
+    p = pathlib.Path(dir)
+        
+    for f in p.rglob(filename):
+        print(str(f.parent))
+
+    if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/hentai"):
+        return jsonify(url="https://thino.pics/api/v1/hentai", image=f"https://i.thino.pics/{filename}")
+
+    if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/helltakerpics"):
+        return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}")
+
+
+
+
 @app.route('/<filename>')
 async def sendfile(filename=None):
     dir = "/root/yanpdb/nsfw_cdn/"
