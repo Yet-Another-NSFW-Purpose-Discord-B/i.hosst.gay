@@ -9,6 +9,16 @@ import os
 app = Quart(__name__)
 
 
+
+
+@app.route("/")
+async def home():
+    return f"""
+    {request.method}
+    {request.url_rule}
+    
+    """
+
 @app.route('/<filename>')
 async def sendfile(filename=None):
     dir = "/root/yanpdb/nsfw_cdn/"
