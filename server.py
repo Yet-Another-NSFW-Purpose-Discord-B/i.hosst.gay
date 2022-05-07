@@ -5,11 +5,9 @@ import aiofiles
 from quart import Quart, jsonify, send_from_directory, url_for, request, render_template
 import random
 import os
+import quart.flask_patch    
 
 app = Quart(__name__)
-
-
-
 
 @app.route("/")
 async def home():
@@ -36,6 +34,9 @@ async def search(filename):
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/helltakerpics"):
         return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}",dir=f"{str(f.resolve)}")
 
+    if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/neko"):
+        return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
+
 
 
 
@@ -43,13 +44,13 @@ async def search(filename):
 async def sendfile(filename=None):
     dir = "/root/yanpdb/nsfw_cdn/"
     p = pathlib.Path(dir)
-
-
     for f in p.rglob(filename):
         print(str(f.parent))
     
+    print(f"https://i.thino.pics/{filename}")
 
     return await send_from_directory(str(f.parent),filename)    
 
 
-app.run(debug=True, port=2031)
+if __name__ == "__main__":
+    app.run(debug=True, port=2031)
