@@ -1,7 +1,6 @@
 # i.hosst.gay
-Backend which servers raw images for nsfw.hosst.gay
+Backend which servers raw images for thino.pics
 
 
 # Domain
-https://i.hosst.gay/
-https://nsfw.hosst.gay
+https://thino.pics
