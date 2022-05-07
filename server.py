@@ -6,7 +6,7 @@ from quart import Quart, jsonify, send_from_directory, url_for, request, render_
 import random
 import os
 import quart.flask_patch    
-
+import logging
 
 app = Quart(__name__)
 
@@ -34,22 +34,22 @@ async def search(filename):
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/hentai"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/hentai", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
+        return jsonify(url="https://thino.pics/api/v1/hentai", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/helltakerpics"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}",dir=f"{str(f.resolve)}")
+        return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/neko"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
+        return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/tomboy"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/tomboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(f.resolve)}")
+        return jsonify(url="https://thino.pics/api/v1/tomboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
 
 
 
