@@ -29,29 +29,30 @@ async def search(filename):
     for f in p.rglob(filename):
         print(str(f.parent))
 
-    
-
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/hentai"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/hentai", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
+        return jsonify(url="https://thino.pics/api/v1/hentai", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}", status=200)
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/helltakerpics"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
+        return jsonify(url="https://thino.pics/api/v1/helltaker", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}", status=200)
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/neko"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
+        return jsonify(url="https://thino.pics/api/v1/neko", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}", status=200)
 
     if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/tomboy"):
         print(filename)
         print(str(f.parent))
-        return jsonify(url="https://thino.pics/api/v1/tomboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}")
+        return jsonify(url="https://thino.pics/api/v1/tomboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}", status=200)
 
-
+    if f.parent == pathlib.Path("/root/yanpdb/nsfw_cdn/images/femboy"):
+        print(filename)
+        print(str(f.parent))
+        return jsonify(url="https://thino.pics/api/v1/femboy", image=f"https://i.thino.pics/{filename}", dir=f"{str(os.path.join(f.parent, filename))}", status=200)
 
 
 @app.route('/<filename>')
